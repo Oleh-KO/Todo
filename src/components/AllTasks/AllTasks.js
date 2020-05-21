@@ -1,17 +1,16 @@
 import React from "react";
-import { Task } from "../Tasks/Task";
+import Task  from "../Task/index";
 
-const AllTasks = props => {
-  const taskList = props.tasks.map(task => (
-    <Task
-      key={task.key}
-      task={task}
-      checkLikeDone={props.checkLikeDone}
-      deleteTask={props.deleteTask}
-      editTask={props.editTask}
-    />
-  ));
-  return <ul>{taskList}</ul>;
-};
+const AllTasks = ({ tasks, checkLikeDone, editTask, deleteTask, statusId}) => (<ul>{
+    tasks.filter(({ status }) => status === statusId ).map(task => (
+        <Task
+            key={task.id}
+            task={task}
+            checkLikeDone={checkLikeDone}
+            deleteTask={deleteTask}
+            editTask={editTask}
+        />
+    ))
+  }</ul>);
 
 export default AllTasks;

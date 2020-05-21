@@ -1,5 +1,5 @@
 import React from "react";
-import { Task } from "../Tasks/Task";
+import { Task } from "../Task/Task";
 
 const CompletedTasks = props => {
   let taskList = props.tasks.filter(task => task.done);

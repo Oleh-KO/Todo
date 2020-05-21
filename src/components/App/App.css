@@ -32,3 +32,15 @@ li {
     color: white;
     background-color: black;
 }
+
+.tasks__row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tasks__col{
+    width: 33%;
+    box-sizing: border-box;
+    padding: 0 16px;
+}

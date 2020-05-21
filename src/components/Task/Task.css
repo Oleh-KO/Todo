@@ -24,7 +24,7 @@
 }
 
 .item--row {
-    width: 44%;
+    width: 100%;
     border: 2px solid black;
     border-radius: 7px;
     padding: 0.6rem;

@@ -1,20 +1,18 @@
 import React from "react";
 import './ToDoMenu.css'
 
-const ToDoMenu = props => {
-
-
-  return (
+const ToDoMenu = ({ handleSubmit, handleChange, value}) => (
     <div>
       <form id="clear"
         className="taskForm"
-        onSubmit={props.addTask}
+        onSubmit={handleSubmit}
       >
         <input
           className="task-input"
           autoComplete="off"
           placeholder="Type a task"
-          onChange={props.handleInputChange}
+          value={value}
+          onChange={handleChange}
         />
         <button className="btn-success" type="submit">
           Add Task
@@ -22,6 +20,5 @@ const ToDoMenu = props => {
       </form>
     </div>
   );
-};
 
 export default ToDoMenu;
