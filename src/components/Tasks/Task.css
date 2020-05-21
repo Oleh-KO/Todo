@@ -1,0 +1,42 @@
+.close {
+    font-weight: bold;
+    border: 2px solid black;
+    cursor: pointer;
+    width: 10%;
+
+}
+
+.close:hover {
+    background-color: red;
+}
+
+.edit {
+    font-weight: bold;
+    border: 2px solid black;
+    cursor: pointer;
+    width: 10%;
+    margin-right: 5px;
+
+}
+
+.edit:hover {
+    background-color: green;
+}
+
+.item--row {
+    width: 44%;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 0.6rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.list-group-btn {
+    width: 177px;
+    margin-right: 26px;
+    background-color: transparent;
+    border: none;
+}
+
