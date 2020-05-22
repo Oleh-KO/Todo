@@ -5,7 +5,7 @@ import {STATUSES, STATUSES_KEYS} from "../../constants/tasks";
 const addTask = ({ tasks }) => (text) => ({
     tasks: [
         ...tasks,
-        { text, done: false, id: tasks.length, status: STATUSES_KEYS.TO_DO }
+        { text, done: false, id: tasks.length, status: STATUSES_KEYS.TO_DO, isEditing: false }
     ],
 });
 
@@ -19,7 +19,9 @@ const deleteTask = ({ tasks }) => key => ({
 });
 
 const editTask = ({ tasks }) => ({ id, ...newData}) => ({
-    tasks: tasks.map((task) => id === task.id ? { id, ...task, ...newData } : task )
+    tasks: tasks.map((task) => id === task.id ? { id, ...task, ...newData } : task ),
+    // isEditing: true
+    
 });
 
 const checkLikeDone = ({ tasks }) => key => ({
@@ -38,7 +40,8 @@ const toDoListFactory = compose(
             handleInputChange,
             deleteTask,
             editTask,
-            checkLikeDone
+            checkLikeDone,
+            
         }
     )
 );
