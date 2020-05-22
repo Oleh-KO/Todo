@@ -2,7 +2,7 @@ import React from "react";
 import "./Task.css";
 import {STATUSES} from "../../constants/tasks";
 
-const Task = ({ checkLikeDone, task, editTask, deleteTask, handleChangeStatus, isEditing, editTaskHandler}) => (
+const Task = ({ checkLikeDone, task, editTask, deleteTask, handleChangeStatus, isEditing, editTaskHandler, handleEditChange, handleEditSubmit, value}) => (
     <li className="item--row">
       <span
         className="text"
@@ -13,10 +13,16 @@ const Task = ({ checkLikeDone, task, editTask, deleteTask, handleChangeStatus, i
             <span>{task.text}</span>
           </button> 
           : 
-          <div className="editField">
-           <input type="text" placeholder="edit..."></input>
-           <button>Save</button>
-          </div>
+          <form 
+            className="editField"
+            onSubmit={handleEditSubmit}>
+           <input 
+            type="text" 
+            placeholder={task.text}
+            value={value}
+            onChange={handleEditChange}/>
+           <button type="submit">Save</button>
+          </form>
         }
       </span>
         <select onChange={handleChangeStatus} value={task.status}>
