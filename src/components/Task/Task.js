@@ -8,18 +8,19 @@ const Task = ({ checkLikeDone, task, editTask, deleteTask, handleChangeStatus, i
         className="text"
         // onClick={e => checkLikeDone(task.key)}
       >
-        {!isEditing ? 
+        {!isEditing ?
           <button className="list-group-btn">
             <span>{task.text}</span>
-          </button> 
-          : 
-          <form 
+          </button>
+          :
+          <form
             className="editField"
             onSubmit={handleEditSubmit}>
-           <input 
-            type="text" 
-            placeholder={task.text}
+           <input
+            type="text"
+            placeholder="Text"
             value={value}
+            defaultValue={task.text}
             onChange={handleEditChange}/>
            <button type="submit">Save</button>
           </form>

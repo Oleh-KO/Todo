@@ -1,4 +1,4 @@
-import {compose, withHandlers, withState} from "recompose";
+import {compose, withHandlers, withState, withStateHandlers} from "recompose";
 import {preventDefault} from "../../utils/helpers/DOMevents]";
 
 
@@ -15,23 +15,22 @@ const editTaskHandler = ({setEditing, editTask, isEditing, task:{id}}) => (id) =
 
 const handleEditChange = ({ setValue }) => ({ target: { value }}) => setValue(value);
 
-const handleEditSubmit = ({ setValue, value, onSubmit }) => (e) => {
+const handleEditSubmit = ({ setValue, value, task: { id }, editTask, setEditing }) => (e) => {
     preventDefault(e);
-    onSubmit(value);
+    editTask({ id, text: value})
     setValue('');
+    setEditing(false);
 };
 
 const toDoMenuFactory = compose(
     withState('isEditing', 'setEditing', false),
-    withState('value', 'setValue', '' ),
-
+    withState('value', 'setValue', ({ task: { text }}) => text ),
     withHandlers({
         handleChangeStatus,
         editTaskHandler,
         handleEditChange,
         handleEditSubmit
-    })
-    
+    }),
 );
 
 
